@@ -1,0 +1,32 @@
+
+.pokemon-detail {
+
+  padding: 10px;
+}
+
+.pokemon{
+  h5{
+    text-decoration: underline;
+  }
+  img{
+    height: 150px;
+  }
+  label{
+    font-weight: bold;
+  }
+  .ability, .type{
+    word-spacing: 4px;
+  }
+  .detail-group {
+    margin: auto;
+    div label {
+      min-width: 70px;
+    }
+  }
+  .stats{
+    .val{
+      float: right;
+    }
+  }
+
+}

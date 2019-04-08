@@ -1,0 +1,17 @@
+<div class="pokedex-container container">
+  <div class="pokedex-wrapper row">
+    <div class="col-6 infinite-container border-right-red" infiniteScroll [infiniteScrollDistance]="0"
+      [infiniteScrollThrottle]="1000" (scrolled)="onScroll()" [scrollWindow]="false">
+      <div class="row">
+        <ng-container *ngFor="let pokemon of pokemons">
+          <div class="col-12 col-lg-6 full-width padding-5">
+            <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-6 infinite-container background-grey">
+      <app-pokemon-detail></app-pokemon-detail>
+    </div>
+  </div>
+</div>

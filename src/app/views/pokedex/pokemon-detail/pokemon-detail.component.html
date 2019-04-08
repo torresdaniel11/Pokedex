@@ -1,0 +1,54 @@
+<div class="pokemon-detail ">
+  <div *ngIf="!!pokemon; else selectPokemon" class="pokemon">
+    <div class="header centered">
+      <h2>{{pokemon?.name}}</h2>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6 centered">
+        <img [src]="pokemon?.sprites?.front_default">
+      </div>
+      <div class="col-12 col-md-6 detail-group">
+        <div>
+          <label>{{pokemon.types.length>1? 'Types':'Type'}}:</label>
+          <ng-container *ngFor="let type of pokemon?.types; let isLast=last">
+            <span class="type">{{type?.type?.name}}{{isLast ? '' : ', '}} </span>
+          </ng-container>
+        </div>
+        <div>
+          <label>Height: </label><span>12</span>
+        </div>
+        <div>
+          <label>Width: </label><span>21</span>
+        </div>
+      </div>
+    </div>
+    <div class="row stats">
+      <div class="col-12">
+        <h5>Stats</h5>
+      </div>
+      <div class="col-6" *ngFor="let stat of pokemon?.stats">
+        {{stat.stat.name}} <span class="val">{{stat.base_stat}}</span>
+      </div>
+    </div>
+
+    <div class="vertical-padding">
+      <h5>Abilities:</h5>
+      <ng-container *ngFor="let ability of pokemon?.abilities; let isLast=last">
+        <span class="ability">{{ability?.ability?.name}}{{isLast ? '' : ', '}} </span>
+      </ng-container>
+    </div>
+    <div class="row moves">
+      <div class="col-12">
+        <h5>Moves</h5>
+      </div>
+      <div class="col-6" *ngFor="let move of pokemon?.moves">
+        <span>{{move?.move?.name}}</span>
+      </div>
+    </div>
+  </div>
+  <ng-template #selectPokemon>
+    <div class="no-pokemon">
+      Select a pokemon to see the details
+    </div>
+  </ng-template>
+</div>

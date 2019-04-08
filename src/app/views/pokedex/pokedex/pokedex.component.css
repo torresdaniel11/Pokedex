@@ -1,0 +1,19 @@
+.pokedex-wrapper{
+  background: #dc0030;
+}
+
+.pokedex-container{
+  background: #c3002f;
+  max-height: 100%;
+  max-width: 100%;
+  padding: 50px;
+}
+
+.infinite-container{
+  height: calc(100vh - 156px); overflow: scroll
+}
+
+.border-right-red{
+  border-right: 4px solid#c3002f;
+}
+
