@@ -1,7 +1,7 @@
-<button class="full-width button-no-styles hover-effect" (click)="showPokemonDetails(pokemon)">
+<button class="full-width button-no-styles hover-effect" (click)="selectPokemon()">
   <div class="pokemon-detail">
     <div class="pokemon">
-      <span>{{_pokemon.name}}</span>
+      <span>{{_pokemon.name | titlecase}}</span>
       <img [src]="pokemonDetails?.sprites?.front_default || ''">
     </div>
   </div>

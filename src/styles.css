@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@font-face { font-family: "Pokemon"; src: url("assets/fonts/pokemon.ttf");}
+
 body{
   font-family: 'Montserrat', sans-serif;
 }
@@ -21,6 +23,10 @@ body{
   padding: 5px;
 }
 
+.margon-bottom-10{
+  margin-bottom: 10px;
+}
+
 .centered{
   text-align: center
 }
@@ -31,4 +37,8 @@ body{
 
 .vertical-padding{
   padding: 10px 0;
+}
+
+.white-text{
+  color:#ffffff;
 }

@@ -1,6 +1,21 @@
 <div class="pokedex-container container">
+  <div class="fight-resume centered">
+    <button class="btn btn-success margon-bottom-10" *ngIf="fightOrDetail === 'detail'"
+      (click)="setFightOrDetail('fight')">
+      Pick Pokemons for fight
+    </button>
+    <button class="btn btn-warning margon-bottom-10" *ngIf="fightOrDetail === 'fight'"
+      (click)="setFightOrDetail('detail')">
+      Fight later
+    </button>
+    <span class="white-text" *ngIf="!!pokeService.getPokemonForFight()">
+      {{pokeService.getPokemonForFight()?.name || '' | uppercase}} Ready for the battle
+    </span>
+
+  </div>
   <div class="pokedex-wrapper row">
-    <div class="col-6 infinite-container border-right-red" infiniteScroll [infiniteScrollDistance]="0"
+    <div [ngClass]="currentView  === 'browse'? 'show': 'hide' "
+      class="hide-on-sm col-12 col-md-6 infinite-container border-right-red" infiniteScroll [infiniteScrollDistance]="0"
       [infiniteScrollThrottle]="1000" (scrolled)="onScroll()" [scrollWindow]="false">
       <div class="row">
         <ng-container *ngFor="let pokemon of pokemons">
@@ -10,7 +25,8 @@
         </ng-container>
       </div>
     </div>
-    <div class="col-6 infinite-container background-grey">
+    <div [ngClass]="currentView  === 'details'? 'show': 'hide' "
+      class="hide-on-sm col-12 col-md-6 infinite-container background-grey">
       <app-pokemon-detail></app-pokemon-detail>
     </div>
   </div>

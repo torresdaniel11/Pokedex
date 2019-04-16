@@ -6,7 +6,7 @@
   background: #c3002f;
   max-height: 100%;
   max-width: 100%;
-  padding: 50px;
+  padding: 10px 30px 50px 30px;
 }
 
 .infinite-container{
@@ -17,3 +17,10 @@
   border-right: 4px solid#c3002f;
 }
 
+
+
+@media screen and (max-width: 767px) {
+  .hide-on-sm.hide{
+    display: none;
+  }
+}

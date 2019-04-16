@@ -1,3 +1,5 @@
+import { NamedAPIResource } from "./named-apiresource";
+
 export class Pokemon {
   id: number;
   name: string;
@@ -11,9 +13,14 @@ export class Pokemon {
   game_indices: any[];
   held_items: any[];
   location_area_encounters: any[];
-  moves: any[];
+  moves: {
+    move: NamedAPIResource
+  }[];
   species: any[];
-  sprites: any[];
+  sprites: {
+    front_default: string;
+    back_default: string;
+  }
   stats: any[];
   types: any[];
 

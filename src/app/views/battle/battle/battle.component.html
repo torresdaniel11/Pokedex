@@ -1,0 +1,63 @@
+<div class="row battle">
+  <audio volume="0.2" #battleSound>
+    <source src='./assets/battle.mp3' type="audio/mp3">
+  </audio>
+  <div class="col-12 opponent" style="text-align: right">
+    <div class="childs-inline">
+      <div class="pokemon-info">
+        <span class="name">{{opponentPokemon?.name | uppercase}}</span>
+        <div class="life-indicator">
+          <span class="label">HP</span>
+          <div class="life" [ngStyle]="{'width.%': opponentLife/2}"
+            [ngClass]="opponentLife <= 90 ? (opponentLife <= 40 ? 'red' : 'yellow' ): '' "> </div>
+        </div>
+      </div>
+      <img class="opponent" [@OpponentEnter]="'flyIn'" [@opponentAnimation]='opponentAnim'
+        [src]="opponentPokemon?.sprites?.front_default || ''">
+    </div>
+  </div>
+
+  <div class="col-12 me">
+    <div class="childs-inline">
+      <div class="pokemon-info">
+        <span class="name">{{myPokemon?.name | uppercase}}</span>
+        <div class="life-indicator">
+          <span class="label">HP</span>
+          <div class="life" [ngStyle]="{'width.%': myLife/2}"
+            [ngClass]="myLife <= 90 ? (myLife <= 40 ? 'red' : 'yellow' ): '' "> </div>
+        </div>
+      </div>
+      <img class="me" [@MyEntrance]="'myEntrance'" [@myAnimation]='myAnim'
+        [src]="myPokemon?.sprites?.back_default || ''">
+    </div>
+
+  </div>
+  <div class="col-12 dialog">
+    <div class="inside-dialog">
+      <div [ngSwitch]="battleStep" class="dialog-textbox">
+        <div *ngSwitchCase="1"> Wild {{opponentPokemon?.name | uppercase}} appeared !</div>
+        <div *ngSwitchCase="2"> CHOOSE YOUR MOVEMENT!</div>
+        <div *ngSwitchCase="3" class="choose-movement">
+          <div class="movement"><button (click)="useMove(myMoves[0])">{{myMoves[0]?.name}}</button></div>
+          <div class="movement"><button (click)="useMove(myMoves[1])">{{myMoves[1]?.name}}</button></div>
+          <div class="movement"><button (click)="useMove(myMoves[2])">{{myMoves[2]?.name}}</button></div>
+          <div class="movement"><button (click)="useMove(myMoves[3])">{{myMoves[3]?.name}}</button></div>
+        </div>
+        <div *ngSwitchCase="4"> {{myPokemon?.name | uppercase}} used {{lastAttack}}</div>
+        <div *ngSwitchCase="5"> Enemy {{opponentPokemon?.name | uppercase}} used {{lastAttack}}</div>
+        <div *ngSwitchCase="95"> {{myPokemon?.name | uppercase}}`s attack missed!</div>
+        <div *ngSwitchCase="96"> {{opponentPokemon?.name | uppercase}}`s attack missed!</div>
+        <div *ngSwitchCase="81"> {{myPokemon?.name | uppercase}} fainted!</div>
+        <div *ngSwitchCase="82"> Enemy {{opponentPokemon?.name | uppercase}} is defeated!</div>
+        <div *ngSwitchCase="50" class="choose-movement">
+          <div class="movement"><button (click)="restart()">Restart Fight</button></div>
+          <div class="movement"><button (click)="randomPokemon()">Change My Pokemon</button></div>
+          <div class="movement"><button (click)="randomOpponent()">Change Opponent's Pokemon</button></div>
+          <div class="movement"><button (click)="randomBoth()">Change Both</button></div>
+        </div>
+        <div *ngSwitchDefault></div>
+      </div>
+
+    </div>
+  </div>
+</div>

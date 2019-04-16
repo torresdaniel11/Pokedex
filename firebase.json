@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "dist/pokemon",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
