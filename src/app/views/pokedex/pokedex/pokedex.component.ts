@@ -21,6 +21,7 @@ export class PokedexComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.backToBrowse();
     this.getPokemonsBatch();
     this.pokeService.currentView.subscribe(view => {
       this.currentView = view;

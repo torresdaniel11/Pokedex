@@ -2,14 +2,19 @@
   <div class="fight-resume centered">
     <button class="btn btn-success margon-bottom-10" *ngIf="fightOrDetail === 'detail'"
       (click)="setFightOrDetail('fight')">
-      Pick Pokemons for fight
+      <ng-container
+        i18n="Pokedex start picking|Pokedex action to start picking pokemons for fight@@PokedexStartPicking"> Pick
+        Pokemons for fight</ng-container>
     </button>
     <button class="btn btn-warning margon-bottom-10" *ngIf="fightOrDetail === 'fight'"
       (click)="setFightOrDetail('detail')">
-      Fight later
+      <ng-container i18n="Pokedex fight later|Pokedex action to stop picking pokemons for fight@@PokedexStopPicking">
+        Fight later</ng-container>
     </button>
     <span class="white-text" *ngIf="!!pokeService.getPokemonForFight()">
-      {{pokeService.getPokemonForFight()?.name || '' | uppercase}} Ready for the battle
+      {{pokeService.getPokemonForFight()?.name || '' | uppercase}}
+      <ng-container i18n="Pokedex pokemons ready|Pokedex pokemons that are ready for the battle@@PokedexPokemonsReady">
+        Ready for the battle</ng-container>
     </span>
   </div>
 
@@ -30,7 +35,14 @@
     [maximizable]=true [style]="{'max-width': '1000px', width:'95%'}">
     <app-pokemon-detail></app-pokemon-detail>
     <p-footer>
-      <button class="btn btn-info" (click)="backToBrowse()">Close <i class="fa fa-times"></i></button>
+      <button class="btn btn-info" (click)="backToBrowse()">
+        <ng-container i18n="Dialog close|Dialog button to dismiss modal@@DialogClose">Close</ng-container>
+        <i class="fa fa-times"></i>
+      </button>
     </p-footer>
   </p-dialog>
 </div>
+
+<!-- 
+  <ng-container i18n="meaning|description@@id"> Hello world</ng-container> 
+-->
