@@ -14,20 +14,21 @@ export class PokedexComponent implements OnInit, OnDestroy {
   pokemons: PokemonListItem[];
   currentView: string;
   fightOrDetail: string;
+  showDialog: boolean = false;
   constructor(public pokeService: PokedexService, private toastr: ToastrService) {
     this.currentView = 'browse';
     this.pokemons = [];
-    this.pokeService.currentView.subscribe(view => {
-      this.currentView = view;
-    })
-
-    this.pokeService.fightOrDetail.subscribe(fightOrDetail => {
-      this.fightOrDetail = fightOrDetail;
-    })
   }
 
   ngOnInit() {
     this.getPokemonsBatch();
+    this.pokeService.currentView.subscribe(view => {
+      this.currentView = view;
+      this.showDialog = view === 'details';
+    })
+    this.pokeService.fightOrDetail.subscribe(fightOrDetail => {
+      this.fightOrDetail = fightOrDetail;
+    })
   }
 
   ngOnDestroy() {
@@ -61,7 +62,10 @@ export class PokedexComponent implements OnInit, OnDestroy {
         timeOut: 3000
       });
     }
+  }
 
+  backToBrowse() {
+    this.pokeService.setCurrentView('browse')
   }
 
 }
