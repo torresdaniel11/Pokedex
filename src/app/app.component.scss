@@ -7,3 +7,24 @@ h1{
     text-decoration: none;
   }
 }
+
+header{
+  height: 50px;
+  .nav-left{
+    float: left;
+    a{
+      font-size: 2rem;
+      color: black;
+      padding-left: 15px;
+    }
+  }
+  .nav-right{
+    float: right;
+    padding: 15px;
+    a {
+      font-size: 18px;
+      padding: 0 7px;
+      font-style: normal;
+    }
+  }
+}
