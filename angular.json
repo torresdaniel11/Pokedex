@@ -51,22 +51,7 @@
             },
             "es": {
               "aot": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "outputPath": "dist/es/",
-              "deployUrl": "/es/",
               "i18nFile": "src/locale/messages.es.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "es",
@@ -89,7 +74,6 @@
               "vendorChunk": false,
               "buildOptimizer": true,
               "outputPath": "dist/fr/",
-              "deployUrl": "/fr/",
               "i18nFile": "src/locale/messages.fr.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "fr",
@@ -112,7 +96,6 @@
               "vendorChunk": false,
               "buildOptimizer": true,
               "outputPath": "dist/ja/",
-              "deployUrl": "/ja/",
               "i18nFile": "src/locale/messages.ja.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "ja",
@@ -128,6 +111,9 @@
           "configurations": {
             "production": {
               "browserTarget": "pokemon:build:production"
+            },
+            "fr": {
+              "browserTarget": "pokemon:build:fr"
             }
           }
         },

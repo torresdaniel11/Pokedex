@@ -1,5 +1,23 @@
 {
   "projects": {
     "default": "pokedex-datola"
+  },
+  "targets": {
+    "pokedex-datola": {
+      "hosting": {
+        "en": [
+          "pokedex-datola"
+        ],
+        "ja": [
+          "ja-pokedex-datola"
+        ],
+        "es": [
+          "es-pokedex-datola"
+        ],
+        "fr": [
+          "fr-pokedex-datola"
+        ]
+      }
+    }
   }
 }
