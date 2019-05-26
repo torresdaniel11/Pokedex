@@ -9,10 +9,11 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./pokemon-detail.component.scss']
 })
 export class PokemonDetailComponent implements OnInit, OnDestroy {
+
   pokemon: Pokemon;
   subscription: any;
-
   fightOrDetail: string;
+
   constructor(private pokeService: PokedexService, private toastr: ToastrService) { }
 
   ngOnInit() {

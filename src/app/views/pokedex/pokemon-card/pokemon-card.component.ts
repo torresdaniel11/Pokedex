@@ -10,10 +10,12 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./pokemon-card.component.css']
 })
 export class PokemonCardComponent implements OnInit, OnDestroy {
+
   _pokemon: PokemonListItem;
   pokemonDetails: Pokemon;
   subs: any;
   fightOrDetail: string;
+
   constructor(private pokeService: PokedexService, private toastr: ToastrService) {
     this.subs = this.pokeService.fightOrDetail.subscribe(state => {
       this.fightOrDetail = state;
@@ -49,7 +51,6 @@ export class PokemonCardComponent implements OnInit, OnDestroy {
         timeOut: 1500
       });
     }
-
   }
 
 }

@@ -11,23 +11,26 @@
     <span class="white-text" *ngIf="!!pokeService.getPokemonForFight()">
       {{pokeService.getPokemonForFight()?.name || '' | uppercase}} Ready for the battle
     </span>
-
   </div>
+
   <div class="pokedex-wrapper row">
-    <div [ngClass]="currentView  === 'browse'? 'show': 'hide' "
-      class="hide-on-sm col-12 col-md-6 infinite-container border-right-red" infiniteScroll [infiniteScrollDistance]="0"
+    <div class="col-12 infinite-container border-right-red" infiniteScroll [infiniteScrollDistance]="0"
       [infiniteScrollThrottle]="1000" (scrolled)="onScroll()" [scrollWindow]="false">
       <div class="row">
         <ng-container *ngFor="let pokemon of pokemons">
-          <div class="col-12 col-lg-6 full-width padding-5">
+          <div class="col-sm-6 col-md-4 col-lg-3 full-width padding-5">
             <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
           </div>
         </ng-container>
       </div>
     </div>
-    <div [ngClass]="currentView  === 'details'? 'show': 'hide' "
-      class="hide-on-sm col-12 col-md-6 infinite-container background-grey">
-      <app-pokemon-detail></app-pokemon-detail>
-    </div>
   </div>
+
+  <p-dialog [(visible)]="showDialog" modal=true [blockScroll]=true [dismissableMask]=true [responsive]=true
+    [maximizable]=true [style]="{'max-width': '1000px', width:'95%'}">
+    <app-pokemon-detail></app-pokemon-detail>
+    <p-footer>
+      <button class="btn btn-info" (click)="backToBrowse()">Close <i class="fa fa-times"></i></button>
+    </p-footer>
+  </p-dialog>
 </div>
