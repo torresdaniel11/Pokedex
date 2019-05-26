@@ -95,7 +95,7 @@
               "i18nLocale": "fr",
               "i18nMissingTranslation": "error"
             },
-            "jp": {
+            "ja": {
               "aot": true,
               "fileReplacements": [
                 {
@@ -111,11 +111,11 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "outputPath": "dist/jp/",
-              "deployUrl": "/jp/",
-              "i18nFile": "src/locale/messages.jp.xlf",
+              "outputPath": "dist/ja/",
+              "deployUrl": "/ja/",
+              "i18nFile": "src/locale/messages.ja.xlf",
               "i18nFormat": "xlf",
-              "i18nLocale": "jp",
+              "i18nLocale": "ja",
               "i18nMissingTranslation": "error"
             }
           }
