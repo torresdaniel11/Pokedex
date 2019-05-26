@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="PokedexStartPicking" datatype="html">
+        <source> Pick
+        Pokemons for fight</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/views/pokedex/pokedex/pokedex.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Pokedex action to start picking pokemons for fight</note>
+        <note priority="1" from="meaning">Pokedex start picking</note>
+      </trans-unit>
+      <trans-unit id="PokedexStopPicking" datatype="html">
+        <source>
+        Fight later</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/views/pokedex/pokedex/pokedex.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Pokedex action to stop picking pokemons for fight</note>
+        <note priority="1" from="meaning">Pokedex fight later</note>
+      </trans-unit>
+      <trans-unit id="PokedexPokemonsReady" datatype="html">
+        <source>
+        Ready for the battle</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/views/pokedex/pokedex/pokedex.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">Pokedex pokemons that are ready for the battle</note>
+        <note priority="1" from="meaning">Pokedex pokemons ready</note>
+      </trans-unit>
+      <trans-unit id="DialogClose" datatype="html">
+        <source>Close</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/views/pokedex/pokedex/pokedex.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <note priority="1" from="description">Dialog button to dismiss modal</note>
+        <note priority="1" from="meaning">Dialog close</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
