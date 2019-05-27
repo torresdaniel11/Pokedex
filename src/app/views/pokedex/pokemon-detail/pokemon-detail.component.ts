@@ -16,6 +16,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   constructor(private pokeService: PokedexService, private toastr: ToastrService) { }
 
+  /*
+    onInit life cycle
+    subscribe to the service to know with pokemon info disply
+  */
   ngOnInit() {
     this.subscription = this.pokeService.getCurrentPokemon()
       .subscribe((pokemon: Pokemon) => {
@@ -26,10 +30,18 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     })
   }
 
+  /*
+    onDestroy life cycle
+    cancel the current requests
+  */
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
+  /*
+    set the current pokemon for fight
+    post: the current pokemon was added for a fight
+  */
   addToFight(): void {
     this.pokeService.savePokemonForFight(this.pokemon);
     this.toastr.success('Added to the battle', this.pokemon.name, {
@@ -37,10 +49,18 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     });
   }
 
+  /*
+    set the current pokemon
+    @param pokemon: the current pokemon to display
+    post: the component have a new pokemon
+  */
   setPokemon(pokemon: Pokemon) {
     this.pokemon = pokemon;
   }
 
+  /*
+    set the current view to browse
+  */
   backToBrowse() {
     this.pokeService.setCurrentView('browse')
   }

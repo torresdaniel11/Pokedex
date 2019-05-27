@@ -20,6 +20,10 @@ export class PokedexComponent implements OnInit, OnDestroy {
     this.pokemons = [];
   }
 
+  /*
+    onInit life cycle
+    ask for the first 20 pokemons
+  */
   ngOnInit() {
     this.backToBrowse();
     this.getPokemonsBatch();
@@ -32,11 +36,18 @@ export class PokedexComponent implements OnInit, OnDestroy {
     })
   }
 
+  /*
+  onDestroy life cycle
+  */
   ngOnDestroy() {
     this.pokeService.restartOffset();
     this.pokeService.setFightOrDetail('detail');
   }
 
+  /*
+    request the servcie a batch of 20 pokemons
+    post: add 20 new pokemons to the current pokemons
+  */
   getPokemonsBatch(): void {
     this.pokeService.getPokemons()
       .pipe(debounceTime(1500))
@@ -48,10 +59,18 @@ export class PokedexComponent implements OnInit, OnDestroy {
       })
   }
 
+  /*
+    listener of the infinite scroll
+    post: ask for a new pokemon batch to add to the view
+  */
   onScroll(): void {
     this.getPokemonsBatch()
   }
 
+  /*
+    request the pokeapi API a batch of 20 pokemons
+    @param fightOrDetail: a string telling if the user want to start a fight or cancel it
+  */
   setFightOrDetail(fightOrDetail: string): void {
     this.pokeService.setFightOrDetail(fightOrDetail)
     if (fightOrDetail === 'detail') {
@@ -65,6 +84,9 @@ export class PokedexComponent implements OnInit, OnDestroy {
     }
   }
 
+  /*
+    dismiss the detail view
+  */
   backToBrowse() {
     this.pokeService.setCurrentView('browse')
   }
